@@ -1,0 +1,5 @@
+- name: Create adguard system account
+  user:
+    name: "{{ adguard_user }}"
+    shell: /sbin/nologin
+    system: True

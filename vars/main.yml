@@ -1,4 +1,4 @@
 ---
 # vars file for adguard
-adguard_download_url: https://static.adguard.com/adguardhome/release/AdGuardHome_linux_amd64.tar.gz
+adguard_download_url: https://static.adguard.com/adguardhome/{{ adguard_release }}/AdGuardHome_linux_amd64.tar.gz
 adguard_download_dest: /tmp/adguard.tar.gz

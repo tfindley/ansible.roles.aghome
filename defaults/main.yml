@@ -1,2 +1,6 @@
 ---
 # defaults file for adguard
+adguard_release: release
+adguard_user: adguard
+adguard_group: adguard
+adguard_install_dest: /opt/adguard

@@ -1,6 +1,9 @@
 ---
 # tasks file for adguard
 
+- name: Populate service facts
+  service_facts:
+
 # Context
 # -------
 # The context section is used to load variables. This has been built in a specific order so that subsequent variable files override earlier variables.
@@ -20,7 +23,7 @@
 # This deals with family-specific variabiles. Store them in /var/family/___.yml
 - name: Load OS family specific variables file
   include_vars:
-    file: "context/family/{{ansible_os_family}}.yml" # RedHat.yml
+    file: "context/family/{{ ansible_os_family }}.yml" # RedHat.yml
   ignore_errors: true
 
 
@@ -40,6 +43,8 @@
 #   - Variables do not concatonate. You must specify the whole variable again.
 # -------
 
-- include_tasks: preflight.yml
+- include_tasks: user.yml
 - include_tasks: download.yml
-- include_tasks: postflight.yml
+- include_tasks: service.yml
+# - include_tasks: firewalld.yml
+#   when: "'firewalld.service' in services"
