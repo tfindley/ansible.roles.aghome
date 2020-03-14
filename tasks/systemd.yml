@@ -1,0 +1,30 @@
+# - name: Disable systemd-resolved's DNSStubResolver
+#   include_tasks: dnsstubresolver.yml
+#   when:
+#     - adguard_disable_systemd_dnsstubresolver and "'firewalld.service' in services"
+
+- name: Disable DNS Stub Listener service
+  service:
+    name: systemd-resolved
+    enabled: no
+    state: stopped
+  when:
+    - adguard_disable_systemd_dnsstubresolver and "'firewalld.service' in services"
+
+- name: Deploy AdGuard Home service file
+  template:
+    src: adguard.service.j2
+    dest: /etc/systemd/system/adguard.service
+    owner: root
+    group: root
+    mode: 0755
+
+- name: just force systemd to reread configs (2.4 and above)
+  systemd:
+    daemon_reload: yes
+
+- name: Start and Enable adguard
+  service:
+    name: adguard
+    state: started
+    enabled: True

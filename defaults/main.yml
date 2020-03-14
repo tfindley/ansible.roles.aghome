@@ -4,3 +4,5 @@ adguard_release: release
 adguard_user: adguard
 adguard_group: adguard
 adguard_install_dest: /opt/adguard
+adguard_service_enable: True
+adguard_disable_systemd_dnsstubresolver: True

@@ -44,7 +44,12 @@
 # -------
 
 - include_tasks: user.yml
+
 - include_tasks: download.yml
-- include_tasks: service.yml
+
+- include_tasks: systemd.yml
+  when:
+    - ansible_service_mgr == "systemd" and adguard_service_enable
+
 # - include_tasks: firewalld.yml
 #   when: "'firewalld.service' in services"
