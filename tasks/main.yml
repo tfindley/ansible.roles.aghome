@@ -13,9 +13,6 @@
 #  - Distribution (i.e: RedHat Enterprise, CentOS, Ubuntu)
 #  - LSB name (i.e: Raspbian) - only applicable to Debian-based OS's, and primarily needed to support Raspbian on Raspberry Pi's as its the only place Raspbian is specified
 #  - Distribution-Version (i.e: Debian-10)
-#  - Hostname (as specificed in inventory file)
-#  - Hostname (as read by Ansible)
-#  - IP Address
 
 # Remember these are CASE SENSITIVE
 
