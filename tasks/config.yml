@@ -1,0 +1,25 @@
+# - debug:
+#     var: adguard_rewrites | type_debug
+
+# - debug:
+#     var: adguard_rewrites
+
+# - debug:
+#     var: adguard_rewrites | to_nice_yaml
+
+# - debug:
+#     var: item.domain
+#   with_items: "{{ adguard_rewrites }}"
+
+# - debug:
+#     var: item.answer
+#   with_items: "{{ adguard_rewrites }}"
+
+- name: Deploy AdGuard Config
+  template:
+    src: AdGuardHome.yaml.j2
+    dest: "{{ adguard_install_dest }}/AdGuardHome/AdGuardHome.yaml"
+    # dest: /root/AdGuardHome.yaml
+    owner: "{{ adguard_user }}"
+    group: "{{ adguard_group }}"
+    mode: 0755

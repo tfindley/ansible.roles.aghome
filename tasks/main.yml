@@ -44,6 +44,8 @@
 
 - include_tasks: download.yml
 
+- include_tasks: config.yml
+
 - include_tasks: systemd.yml
   when:
     - ansible_service_mgr == "systemd" and adguard_service_enable

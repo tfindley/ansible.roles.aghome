@@ -13,8 +13,11 @@ WorkingDirectory={{ adguard_install_dest }}/AdGuardHome
 
 
 
-Restart=always
-RestartSec=10
+Type=simple
+Restart=on-failure
+RestartSec=5
+StartLimitInterval=60s
+StartLimitBurst=3
 EnvironmentFile=-/etc/sysconfig/AdGuardHome
 
 [Install]

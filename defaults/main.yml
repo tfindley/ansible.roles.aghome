@@ -1,8 +1,31 @@
 ---
 # defaults file for adguard
-adguard_release: release
+# adguard_release: release
+adguard_release: edge
 adguard_user: adguard
 adguard_group: adguard
-adguard_install_dest: /opt/adguard
+adguard_install_dest: /opt
+
 adguard_service_enable: True
 adguard_disable_systemd_dnsstubresolver: True
+adguard_admin_bind_port: 8053
+adguard_admin_bind_host: 0.0.0.0
+adguard_bind_host: 0.0.0.0
+adguard_bind_port: 53
+adguard_users:
+  - name: tristan
+    password: $2a$10$32ix9uws8Fnupz04UsAyfess.j.JcwqQB8TyBU4aYfe3/LPt.p8/W
+adguard_rewrites:
+  - domain: blue.findley.pm
+    answer: 10.0.0.93
+  - domain: red.findley.pm
+    answer: 10.0.0.92
+adguard_dhcp:
+  enabled: False
+  interface_name: eth0
+  gateway_ip: 192.168.20.1
+  subnet_mask: 255.255.255.0
+  range_start: 192.168.20.100
+  range_end: 192.168.20.200
+  lease_duration: 86400
+  icmp_timeout_msec: 1000
