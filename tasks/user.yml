@@ -1,5 +1,5 @@
 - name: Create adguard system account
-  user:
+  ansible.builtin.user:
     name: "{{ adguard_user }}"
     shell: /sbin/nologin
     system: True

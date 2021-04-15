@@ -4,7 +4,7 @@
 #     - adguard_disable_systemd_dnsstubresolver and "'firewalld.service' in services"
 
 - name: Disable DNS Stub Listener service
-  service:
+  ansible.builtin.service:
     name: systemd-resolved
     enabled: no
     state: stopped
@@ -12,7 +12,7 @@
     - adguard_disable_systemd_dnsstubresolver and "'firewalld.service' in services"
 
 - name: Deploy AdGuard Home service file
-  template:
+  ansible.builtin.template:
     src: adguard.service.j2
     dest: /etc/systemd/system/adguard.service
     owner: root
@@ -20,11 +20,11 @@
     mode: 0755
 
 - name: just force systemd to reread configs (2.4 and above)
-  systemd:
+  ansible.builtin.systemd:
     daemon_reload: yes
 
 - name: Start and Enable adguard
-  service:
+  ansible.builtin.service:
     name: adguard
     state: started
     enabled: True

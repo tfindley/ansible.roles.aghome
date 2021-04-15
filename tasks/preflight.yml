@@ -1,0 +1,9 @@
+---
+- name: Set architcture to arm64
+  ansible.builtin.set_fact:
+    adguard_arch: arm64
+  when: ansible_architecture in arm64
+  vars:
+    arm64:
+      - aarch64
+      - arm64

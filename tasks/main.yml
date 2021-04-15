@@ -2,7 +2,7 @@
 # tasks file for adguard
 
 - name: Populate service facts
-  service_facts:
+  ansible.builtin.service_facts:
 
 # Context
 # -------
@@ -39,6 +39,8 @@
 #   - Variables in more specific files completely overwrite variables loaded before it.
 #   - Variables do not concatonate. You must specify the whole variable again.
 # -------
+
+- include_tasks: preflight.yml
 
 - include_tasks: user.yml
 

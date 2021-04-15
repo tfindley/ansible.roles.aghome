@@ -6,3 +6,4 @@ adguard_group: adguard
 adguard_install_dest: /opt/adguard
 adguard_service_enable: True
 adguard_disable_systemd_dnsstubresolver: True
+adguard_arch: amd64
